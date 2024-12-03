@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: dailyActivities
+
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3310}/daily_activities # If no env variables passed, localhost and 3310 will be used
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # Options: create, update, validate, none
+    show-sql: true       # Shows SQL in console for debugging
+    sql:
+      init:
+        mode: always
+---
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+
+---
+server:
+  port: 8081
